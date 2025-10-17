@@ -1,0 +1,41 @@
+!pip install -q -U google-generativeai
+
+import google.generativeai as genai
+
+# Aquí va la magia. Pega tu API key que acabas de crear.
+API_KEY = 'TU_API_KEY_AQUÍ'
+genai.configure(api_key=API_KEY)
+
+
+# Creamos una instancia del modelo. Usaremos gemini-1.5-flash.
+model = genai.GenerativeModel('gemini-1.5-flash')
+
+# ¡El prompt! Pídanle lo que quieran.
+prompt = "Dame 3 ideas de proyectos para un hackathon que combinen IA y sustentabilidad. Sé breve y directo."
+response = model.generate_content(prompt)
+
+# Imprimimos la respuesta
+print(response.text)
+
+
+# Creamos una instancia del modelo. Usaremos gemini-1.5-flash.
+model = genai.GenerativeModel('gemini-1.5-flash')
+
+# ¡El prompt! Pídanle lo que quieran.
+prompt = "Dame 3 ideas de proyectos para un hackathon que combinen IA y sustentabilidad. Sé breve y directo."
+response = model.generate_content(prompt)
+
+# Imprimimos la respuesta
+print(response.text)
+
+
+# Necesitamos la librería para manejar imágenes
+import PIL.Image
+
+# Suban una imagen y pongan el nombre aquí
+img = PIL.Image.open('nombre-de-su-imagen.jpg')
+
+# El prompt ahora es una combinación de texto e imagen
+response = model.generate_content(["¿Qué ves en esta imagen? Describe los elementos principales.", img])
+
+print(response.text)
